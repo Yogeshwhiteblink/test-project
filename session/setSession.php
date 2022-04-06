@@ -27,9 +27,9 @@ $_SESSION['username'] = $jsonResponse->username;
 $_SESSION['role'] = $jsonResponse->roles[0];
 $_SESSION['firstName'] = $jsonResponse->firstName;
 $_SESSION['lastName'] = $jsonResponse->lastName;
+$_SESSION['jwt'] = $jwt;
 
 session_commit();
-//echo "$response";
 echo  "true";
 
 ?>
