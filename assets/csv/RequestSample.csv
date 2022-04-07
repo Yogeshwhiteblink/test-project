@@ -1,0 +1,1 @@
+FirstName (Mandatory),LastName (Mandatory),Email,Matter ID,Phone 1 (Mandatory),Phone 2,DOB (Mandatory) (MM-DD-YYYY),Last4SSN (Mandatory),Timezone,Claimant Mailing Address,POA,HospitalName,ProviderName,Address,UserName,Password,Request Content (Mandatory)

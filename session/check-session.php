@@ -22,5 +22,7 @@ if(isset($_SESSION['role']))
     exit;
 }
 
+$jwt=$_SESSION['jwt'];
 
-?>
+
+
