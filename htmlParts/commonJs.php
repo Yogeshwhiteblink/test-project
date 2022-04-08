@@ -24,3 +24,9 @@
 <script src="assets/assets/libs/c3/c3.min.js"></script>
 <!-- Chart JS -->
 <script src="assets/dist/js/pages/dashboards/dashboard1.js"></script>
+
+<!-- Ajax  -->
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+<!-- JQuery -->
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>

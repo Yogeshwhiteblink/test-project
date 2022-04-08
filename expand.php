@@ -1,11 +1,11 @@
 <?php
 require('session/check-session.php');
-//if(isset($_GET['username'])){
+if(isset($_GET['username'])){
     $username = $_GET['username'];
-//}
+}
 ?>
 
-<html>
+<html lang="">
 <head>
     <title>Expand Page</title>
     <style>
@@ -27,41 +27,34 @@ require('session/check-session.php');
 
 </head>
 <body ng-app="myExpandApp" ng-controller="expand">
-<h1>
-    Expand page!
-    <?php
-    echo $username;
-    ?>
-    <a href="session/logout.php"><button class="btn btn-success" type="submit">Logout</button></a>
+<h1>Expand page!</h1>
+<a href="session/logout.php">
+    <button class="btn btn-success" type="submit">Logout</button>
+</a>
 
-    <div id="data">
-        <ol style="list-style: none">
-            <li>ID:<span class="list-item"> {{expand.id}}</span></li>
-            <li> UserName:<span class="list-item"> {{expand.account.username}}</span></li>
-            <li>FirstName: <span class="list-item">{{expand.account.firstName}}</span> </li>
-            <li>LastName:  <span class="list-item"> {{expand.account.lastName}}</span></li>
-            <li>Cell-Number:  <span class="list-item">{{cellHandler(expand.account.cellPhone)}}</span></li>
-            <li>Account Created At: <span class="list-item">  {{ dateHandler(expand.account.accountCreated)}}</span></li>
-            <li>Status is Active: <span class="list-item"> {{expand.account.isActive}}</span></li>
-
-        </ol>
-    </div>
+<div id="data">
+    <ol style="list-style: none">
+        <li>ID: <span class="list-item"> {{expand.id}}</span></li>
+        <li>UserName: <span class="list-item"> {{expand.account.username}}</span></li>
+        <li>FirstName: <span class="list-item">{{expand.account.firstName}}</span> </li>
+        <li>LastName:  <span class="list-item"> {{expand.account.lastName}}</span></li>
+        <li>Cell-Number:  <span class="list-item">{{cellHandler(expand.account.cellPhone)}}</span></li>
+        <li>Account Created At: <span class="list-item">  {{ dateHandler(expand.account.accountCreated)}}</span></li>
+        <li>Status is Active: <span class="list-item"> {{expand.account.isActive}}</span></li>
+    </ol>
+</div>
 
 
-
-</h1>
 <?php
 require ('htmlParts/commonJs.php');
 ?>
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
-<script src="https://code.jquery.com/jquery-3.3.1.min.js"
-        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 
 <script>
 
     var myExpandApp = angular.module("myExpandApp", []);
 
     myExpandApp.controller('expand', function ($scope){
+
         var settings = {
             "url": "https://backend-development.wbmyselfhealth.com/admin/getProvider/<?php echo $username; ?>",
             "method": "GET",
@@ -75,6 +68,7 @@ require ('htmlParts/commonJs.php');
             $scope.$apply();
             console.log(response);
         });
+
         $scope.dateHandler = function (value){
             //MM-DD-YYYY HH:MM:SS Z
             console.log(value);
@@ -98,11 +92,11 @@ require ('htmlParts/commonJs.php');
             console.log(m);
             return m + "-" + day + "-" + d.getFullYear() + " " + hour + ":" +minutes+":"+ seconds +" " + z;
         }
-        //+1 XXX-NXX-XXXX
+
         $scope.cellHandler = function (value){
             return value.slice(0,2) + "-" + value.slice(3,6) + "-" + value.slice(7,10) + "-" + value.slice(8,12);
         }
-    })
+    });
 
 </script>
 
